@@ -84,8 +84,9 @@ In this phase, I established the identity foundation by promoting the primary Do
 
 * **Initiating Domain Join & Success:**
 
-  |---|---|
-  | ![Join Step](./assets/domain-join-step.png) |  ![Join Success](./assets/join-success.png) |
+| Initiating Join | Success Message |
+|---|---|
+| ![Join Step](./assets/domain-join-step.png) | ![Join Success](./assets/join-success.png) |
   
 #### 3. Directory Verification & Identity (Live Demo)
 * **Active Directory Users and Computers (ADUC):**
