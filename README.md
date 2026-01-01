@@ -28,3 +28,20 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 3. **System Optimization:**
    - **Checkpoints Disabled:** I have intentionally disabled the checkpoint feature for both virtual machines as they are not required for the current phase of the lab. 
    - **Note:** While I am aware that checkpoints (snapshots) are a powerful tool for creating point-in-time backups and recovering from configuration errors.
+
+### Visual Proof of Setup
+
+#### 1. Networking & Hyper-V Management
+| Virtual Switch Configuration | Hyper-V Manager Overview |
+|---|---|
+| ![vSwitch](./assets/virtual-Switch.png) | ![HyperV Manager](./assets/Hyper-V%20Manager.png) |
+
+#### 2. Virtual Machine Specifications
+* **DC01 Configuration:**
+  ![DC1 Settings](./assets/DC1-Settings.png)
+* **SVR01 Configuration:**
+  ![SVR1 Settings](./assets/SVR1-Settings.png)
+
+#### 3. System Access (Live Demo)
+> Below is a quick capture of the successful login process for the deployed instances:
+![Login Demo](./assets/login-demo.gif)
