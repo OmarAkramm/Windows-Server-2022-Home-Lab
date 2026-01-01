@@ -48,58 +48,51 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 > Below is a quick capture of the successful login process:
 ![Login Demo](./assets/login-demo.gif)
 
-## 🌐 Phase 2: Active Directory & Domain Integration
-
-### 1️⃣ Network Infrastructure (Static Configuration)
-To establish a stable identity environment, I configured static IP addresses. The critical step was pointing the Member Server's DNS to the Domain Controller.
-
-#### **Primary Domain Controller (KWT-DC01)**
-* **IP Address:** `192.168.8.100`
-* **Subnet Mask:** `255.255.255.0`
-* **Default Gateway:** `192.168.8.1`
-* **Preferred DNS:** `127.0.0.1` (Self-reference)
-
-![DC Network](./assets/dc-ip-config.png)
-
 ---
 
-#### **Member Server (KWT-SVR01)**
-* **IP Address:** `192.168.8.101`
-* **Subnet Mask:** `255.255.255.0`
-* **Default Gateway:** `192.168.8.1`
-* **Preferred DNS:** `192.168.8.100` (Pointing to DC)
+### Phase 2: Active Directory Domain Services & Network Integration
+In this phase, I established the identity foundation by promoting the primary Domain Controller and integrating the member server into the `homelab.com` forest.
 
-![SVR Network](./assets/svr-dns-setup.png)
+1. **Network Standardization:**
+   - Assigned static IPv4 addresses to ensure persistent DNS resolution between the servers.
+   - **KWT-DC01 (Domain Controller):**
+     - **IP:** `192.168.8.100` | **Preferred DNS:** `127.0.0.1` (Loopback)
+   - **KWT-SVR1 (Member Server):**
+     - **IP:** `192.168.8.101` | **Preferred DNS:** `192.168.8.100` (Pointing to DC1)
 
----
+2. **Domain Controller Promotion:**
+   - **Role Installation:** Deployed Active Directory Domain Services (AD DS) role.
+   - **Forest Creation:** Established a new forest: `homelab.com`.
+   - **Identity Update:** Finalized the server hostname as `KWT-DC01`.
 
-### 2️⃣ AD DS Promotion (KWT-DC01)
-I installed the **Active Directory Domain Services** role and promoted the server to a Domain Controller within a new forest.
+3. **Domain Integration (Join Process):**
+   - **Server Naming:** Updated the member server hostname to `KWT-SVR01`.
+   - **Domain Join:** Successfully joined `KWT-SVR01` to the `homelab.com` domain.
+   - **Authentication:** Verified the join using Domain Administrator credentials.
 
-* **Root Domain Name:** `homelab.com`
-* **Forest Function Level:** Windows Server 2016 (Standard for compatibility)
+### Visual Proof of Domain Setup
 
-![Forest Setup](./assets/forest-setup.png)
+#### 1. Networking & Static IP Configuration
+| KWT-DC01 Network Settings | KWT-SVR01 DNS Pointing | 
+|---|---|
+| ![DC Network](./assets/dc-ip-config.png) | ![SVR Network](./assets/svr-dns-setup.png) |
 
----
+#### 2. Active Directory Configuration & Domain Join
+* **Forest Deployment (`homelab.com`):**
+  ![Forest Setup](./assets/forest-setup.png)
 
-### 3️⃣ Joining the Domain (KWT-SVR01)
-The member server was integrated into the `homelab.com` domain. This process verifies that DNS resolution is working correctly between the two virtual machines.
+* **Initiating Domain Join & Success:**
+  ![Join Step](./assets/domain-join-step.png)
+  ![Join Success](./assets/join-success.png)
 
-**A. Initiating the Join:**
-![Join Step](./assets/domain-join-step.png)
+#### 3. Directory Verification & Identity (Live Demo)
+* **Active Directory Users and Computers (ADUC):**
+  > Verification of `KWT-SVR01` registration within the "Computers" container:
+  ![ADUC Check](./assets/aduc-check.png)
 
-**B. Successful Domain Welcome:**
-![Join Success](./assets/join-success.png)
-
----
-
-### 4️⃣ Post-Configuration Verification
-To confirm the lab's health, I verified the computer objects in AD and performed a domain-level login.
-
-#### **Active Directory Users & Computers (ADUC)**
-I confirmed that `KWT-SVR01` is correctly populated within the **Computers** container.
-![ADUC Check](./assets/aduc-check.png)
+* **Domain Admin Access:**
+  > Below is a capture of the successful login on the member server using the Domain Administrator account (`HOMELAB\Administrator`):
+  ![Domain Login](./assets/domain-login-final.gif)
 
 #### **🎬 Demonstration: Domain Admin Login**
 The following GIF shows the login process on `KWT-SVR01` using the `HOMELAB\Administrator` account, proving the domain's authority over the member server.
