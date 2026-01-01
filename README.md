@@ -46,5 +46,4 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 
 #### 3. System Access (Live Demo)
 > Below is a quick capture of the successful login process:
-<video src="./assets/login-demo.mp4" controls="controls" style="max-width: 100%;">
-</video>
+https://github.com/OmarAkramm/Windows-Server-2022-Home-Lab/blob/main/assets/login-demo.mp4
