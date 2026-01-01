@@ -82,7 +82,9 @@ In this phase, I established the identity foundation by promoting the primary Do
   ![Forest Setup](./assets/forest-setup.png)
 
 * **Initiating Domain Join & Success:**
+  
   ![Join Step](./assets/domain-join-step.png)
+  
   ![Join Success](./assets/join-success.png)
 
 #### 3. Directory Verification & Identity (Live Demo)
@@ -94,7 +96,4 @@ In this phase, I established the identity foundation by promoting the primary Do
   > Below is a capture of the successful login on the member server using the Domain Administrator account (`HOMELAB\Administrator`):
   ![Domain Login](./assets/domain-login-final.gif)
 
-#### **🎬 Demonstration: Domain Admin Login**
-The following GIF shows the login process on `KWT-SVR01` using the `HOMELAB\Administrator` account, proving the domain's authority over the member server.
 
-![Domain Login](./assets/domain-login-final.gif)
