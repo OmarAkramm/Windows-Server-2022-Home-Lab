@@ -48,42 +48,60 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 > Below is a quick capture of the successful login process:
 ![Login Demo](./assets/login-demo.gif)
 
+## 🌐 Phase 2: Active Directory & Domain Integration
 
-### 1. Networking Strategy & DNS Hierarchy
-I configured static IP addressing to ensure persistent communication. The most critical part was pointing the Member Server's DNS to the Domain Controller's IP.
+### 1️⃣ Network Infrastructure (Static Configuration)
+To establish a stable identity environment, I configured static IP addresses. The critical step was pointing the Member Server's DNS to the Domain Controller.
 
-#### **KWT-DC01 (Domain Controller)**
+#### **Primary Domain Controller (KWT-DC01)**
 * **IP Address:** `192.168.8.100`
-* **Preferred DNS:** `127.0.0.1` (Loopback address)
+* **Subnet Mask:** `255.255.255.0`
+* **Default Gateway:** `192.168.8.1`
+* **Preferred DNS:** `127.0.0.1` (Self-reference)
+
 ![DC Network](./assets/dc-ip-config.png)
 
-#### **KWT-SVR01 (Member Server)**
+---
+
+#### **Member Server (KWT-SVR01)**
 * **IP Address:** `192.168.8.101`
+* **Subnet Mask:** `255.255.255.0`
+* **Default Gateway:** `192.168.8.1`
 * **Preferred DNS:** `192.168.8.100` (Pointing to DC)
+
 ![SVR Network](./assets/svr-dns-setup.png)
 
 ---
 
-### 2. Domain Controller Promotion
-I initiated the new forest `homelab.com` and promoted `KWT-DC01` to the Role of Domain Controller.
+### 2️⃣ AD DS Promotion (KWT-DC01)
+I installed the **Active Directory Domain Services** role and promoted the server to a Domain Controller within a new forest.
+
+* **Root Domain Name:** `homelab.com`
+* **Forest Function Level:** Windows Server 2016 (Standard for compatibility)
+
 ![Forest Setup](./assets/forest-setup.png)
-
-### 3. Member Server Integration
-This step involved connecting the Member Server to the established domain.
-
-| Stage | Action | Documentation |
-| :--- | :--- | :--- |
-| **Joining** | Connecting to `homelab.com` | ![Join Step](./assets/domain-join-step.png) |
-| **Confirmation** | Welcome Message | ![Join Success](./assets/join-success.png) |
 
 ---
 
-### 4. Final Verification
-I verified the infrastructure's health through the ADUC console and a successful cross-machine domain login.
+### 3️⃣ Joining the Domain (KWT-SVR01)
+The member server was integrated into the `homelab.com` domain. This process verifies that DNS resolution is working correctly between the two virtual machines.
 
-> ![ADUC Check](./assets/aduc-check.png)
-> *`KWT-SVR01` correctly registered in the Computers container.*
+**A. Initiating the Join:**
+![Join Step](./assets/domain-join-step.png)
 
-#### 🎬 Live Demo: Domain Administrator Login
+**B. Successful Domain Welcome:**
+![Join Success](./assets/join-success.png)
+
+---
+
+### 4️⃣ Post-Configuration Verification
+To confirm the lab's health, I verified the computer objects in AD and performed a domain-level login.
+
+#### **Active Directory Users & Computers (ADUC)**
+I confirmed that `KWT-SVR01` is correctly populated within the **Computers** container.
+![ADUC Check](./assets/aduc-check.png)
+
+#### **🎬 Demonstration: Domain Admin Login**
+The following GIF shows the login process on `KWT-SVR01` using the `HOMELAB\Administrator` account, proving the domain's authority over the member server.
+
 ![Domain Login](./assets/domain-login-final.gif)
-*Logging into the member server using the `HOMELAB\Administrator` account.*
