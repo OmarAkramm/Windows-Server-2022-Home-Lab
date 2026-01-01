@@ -32,15 +32,15 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 ### Visual Proof of Setup
 
 #### 1. Networking & Hyper-V Management
-| Virtual Switch Configuration | Hyper-V Manager Overview |
+| Hyper-V Manager Overview | Virtual Switch Configuration | 
 |---|---|
-| ![vSwitch](./assets/virtual-Switch.png) | ![HyperV Manager](./assets/Hyper-V%20Manager.png) |
+| ![HyperV Manager](./assets/Hyper-V%20Manager.png) | ![vSwitch](./assets/virtual-Switch.png) |
 
 #### 2. Virtual Machine Specifications
-* **DC01 Configuration:**
+* **DC1 Configuration:**
   
   ![DC1 Settings](./assets/DC1-Settings.png)
-* **SVR01 Configuration:**
+* **SVR1 Configuration:**
   
   ![SVR1 Settings](./assets/SVR1-Settings.png)
 
