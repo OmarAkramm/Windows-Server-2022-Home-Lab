@@ -45,5 +45,5 @@ In this phase, the core virtualization environment was prepared using Microsoft 
   ![SVR1 Settings](./assets/SVR1-Settings.png)
 
 #### 3. System Access (Live Demo)
-> Below is a quick capture of the successful login process for the deployed instances:
-![Login Demo](./assets/login-demo.gif)
+> Below is a quick capture of the successful login process:
+https://github.com/OmarAkramm/Windows-Server-2022-Home-Lab/blob/main/assets/login-demo.mp4
