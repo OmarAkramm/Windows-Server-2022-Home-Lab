@@ -46,6 +46,3 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 
 #### 3. System Access (Live Demo)
 > Below is a quick capture of the successful login process:
-<div align="center">
-  <video src="assets/login-demo.mp4" width="100%" controls title="Lab Demo"></video>
-</div>
