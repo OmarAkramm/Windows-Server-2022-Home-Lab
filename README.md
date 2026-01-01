@@ -47,3 +47,43 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 #### 3. System Access (Live Demo)
 > Below is a quick capture of the successful login process:
 ![Login Demo](./assets/login-demo.gif)
+
+
+### 1. Networking Strategy & DNS Hierarchy
+I configured static IP addressing to ensure persistent communication. The most critical part was pointing the Member Server's DNS to the Domain Controller's IP.
+
+#### **KWT-DC01 (Domain Controller)**
+* **IP Address:** `192.168.8.100`
+* **Preferred DNS:** `127.0.0.1` (Loopback address)
+![DC Network](./assets/dc-ip-config.png)
+
+#### **KWT-SVR01 (Member Server)**
+* **IP Address:** `192.168.8.101`
+* **Preferred DNS:** `192.168.8.100` (Pointing to DC)
+![SVR Network](./assets/svr-dns-setup.png)
+
+---
+
+### 2. Domain Controller Promotion
+I initiated the new forest `homelab.com` and promoted `KWT-DC01` to the Role of Domain Controller.
+![Forest Setup](./assets/forest-setup.png)
+
+### 3. Member Server Integration
+This step involved connecting the Member Server to the established domain.
+
+| Stage | Action | Documentation |
+| :--- | :--- | :--- |
+| **Joining** | Connecting to `homelab.com` | ![Join Step](./assets/domain-join-step.png) |
+| **Confirmation** | Welcome Message | ![Join Success](./assets/join-success.png) |
+
+---
+
+### 4. Final Verification
+I verified the infrastructure's health through the ADUC console and a successful cross-machine domain login.
+
+> ![ADUC Check](./assets/aduc-check.png)
+> *`KWT-SVR01` correctly registered in the Computers container.*
+
+#### 🎬 Live Demo: Domain Administrator Login
+![Domain Login](./assets/domain-login-final.gif)
+*Logging into the member server using the `HOMELAB\Administrator` account.*
