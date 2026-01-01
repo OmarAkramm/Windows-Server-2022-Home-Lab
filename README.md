@@ -79,9 +79,12 @@ In this phase, I established the identity foundation by promoting the primary Do
 
 #### 2. Active Directory Configuration & Domain Join
 * **Forest Deployment (`homelab.com`):**
+  
   ![Forest Setup](./assets/forest-setup.png)
 
 * **Initiating Domain Join & Success:**
+
+  |---|---|
   | ![Join Step](./assets/domain-join-step.png) |  ![Join Success](./assets/join-success.png) |
   
 #### 3. Directory Verification & Identity (Live Demo)
