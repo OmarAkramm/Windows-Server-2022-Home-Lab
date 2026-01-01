@@ -38,8 +38,10 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 
 #### 2. Virtual Machine Specifications
 * **DC01 Configuration:**
+  
   ![DC1 Settings](./assets/DC1-Settings.png)
 * **SVR01 Configuration:**
+  
   ![SVR1 Settings](./assets/SVR1-Settings.png)
 
 #### 3. System Access (Live Demo)
