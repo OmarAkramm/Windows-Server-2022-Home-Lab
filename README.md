@@ -27,7 +27,7 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 
 3. **System Optimization:**
    - **Checkpoints Disabled:** I have intentionally disabled the checkpoint feature for both virtual machines as they are not required for the current phase of the lab. 
-   - **Note:** While I am aware that checkpoints (snapshots) are a powerful tool for creating point-in-time backups and recovering from configuration errors.
+   - **Note:** While I am aware that checkpoints (snapshots) are a powerful tool for recovering from configuration errors.
 
 ### Visual Proof of Setup
 
