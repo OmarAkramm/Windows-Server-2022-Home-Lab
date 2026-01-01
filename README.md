@@ -46,4 +46,3 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 
 #### 3. System Access (Live Demo)
 > Below is a quick capture of the successful login process:
-https://github.com/user-attachments/assets/448e6e23-cb98-4bd4-afef-48cf56114595
