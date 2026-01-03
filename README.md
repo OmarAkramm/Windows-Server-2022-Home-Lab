@@ -100,27 +100,26 @@ In this phase, I established the identity foundation by promoting the primary Do
 ---
 
 ## Phase 3: Implementing High Availability (Additional Domain Controller)
-
 In this phase, I promoted **KWT-SVR01** from a Member Server to an **Additional Domain Controller (ADC)**. This step is crucial for ensuring redundancy, load balancing, and fault tolerance within the `homelab.com` domain.
 
 ### 📸 Execution Steps:
 
 1. **Deployment Configuration:** Selected "Add a domain controller to an existing domain" using the `homelab.com` credentials.
-   ![Deployment Config](./images/ADC-01-Deployment-Config.png)
+   ![Deployment Config](./assets/ADC-01-Deployment-Config.png)
 
 2. **Domain Controller Options:** Enabled the **Global Catalog (GC)**. 
    > **Note on DNS:** For this lab, the DNS role was not installed on the ADC to rely on the Primary DC's centralized DNS.
-   ![DC Options](./images/ADC-02-Domain-Controller-Options.png)
+   ![DC Options](./assets/ADC-02-Domain-Controller-Options.png)
 
 3. **Replication Strategy:** Used the "Any domain controller" option. Since there is currently only one Primary DC, the system automatically sourced the AD database from **KWT-DC01**.
-   ![Replication Options](./images/ADC-03-Additional-Options.png)
+   ![Replication Options](./assets/ADC-03-Additional-Options.png)
 
 4. **Prerequisites Check:** All checks passed successfully, ensuring the environment was ready for the promotion.
-   ![Prerequisites Check](./images/ADC-04-Prerequisites-Check.png)
+   ![Prerequisites Check](./assets/ADC-04-Prerequisites-Check.png)
 
 ### ✅ Final Verification:
 After the promotion and mandatory reboot, **KWT-SVR01** now appears correctly under the **Domain Controllers** container in Active Directory Users and Computers (ADUC), alongside the Primary DC.
-![Final ADUC View](./images/ADC-05-Final-ADUC-View.png)
+![Final ADUC View](./assets/ADC-05-Final-ADUC-View.png)
 
 ---
 
