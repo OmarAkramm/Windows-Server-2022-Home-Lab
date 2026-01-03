@@ -105,16 +105,20 @@ In this phase, I promoted **KWT-SVR01** from a Member Server to an **Additional 
 ### 📸 Execution Steps:
 
 1. **Deployment Configuration:** Selected "Add a domain controller to an existing domain" using the `homelab.com` credentials.
+
    ![Deployment Config](./assets/ADC-01-Deployment-Config.png)
 
-2. **Domain Controller Options:** Enabled the **Global Catalog (GC)**. 
+3. **Domain Controller Options:** Enabled the **Global Catalog (GC)**. 
    > **Note on DNS:** For this lab, the DNS role was not installed on the ADC to rely on the Primary DC's centralized DNS.
+   
    ![DC Options](./assets/ADC-02-Domain-Controller-Options.png)
 
-3. **Replication Strategy:** Used the "Any domain controller" option. Since there is currently only one Primary DC, the system automatically sourced the AD database from **KWT-DC01**.
+5. **Replication Strategy:** Used the "Any domain controller" option. Since there is currently only one Primary DC, the system automatically sourced the AD database from **KWT-DC01**.
+
    ![Replication Options](./assets/ADC-03-Additional-Options.png)
 
-4. **Prerequisites Check:** All checks passed successfully, ensuring the environment was ready for the promotion.
+7. **Prerequisites Check:** All checks passed successfully, ensuring the environment was ready for the promotion.
+
    ![Prerequisites Check](./assets/ADC-04-Prerequisites-Check.png)
 
 ### ✅ Final Verification:
@@ -125,3 +129,5 @@ After the promotion and mandatory reboot, **KWT-SVR01** now appears correctly un
 
 > **💡 Technical Insight (Production vs. Lab):**
 > While this lab uses a simplified DNS and replication setup, in a **Production Environment**, the best practice is to install DNS on all domain controllers for High Availability and to explicitly define replication partners.
+
+---
