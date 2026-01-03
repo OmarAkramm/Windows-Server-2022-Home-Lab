@@ -99,7 +99,7 @@ In this phase, I established the identity foundation by promoting the primary Do
 
 ---
 
-## Phase 3: Implementing High Availability (Additional Domain Controller)
+### Phase 3: Implementing High Availability (Additional Domain Controller)
 In this phase, I promoted **KWT-SVR01** from a Member Server to an **Additional Domain Controller (ADC)**. This step is crucial for ensuring redundancy, load balancing, and fault tolerance within the `homelab.com` domain.
 
 ### 📸 Execution Steps:
