@@ -102,7 +102,7 @@ In this phase, I established the identity foundation by promoting the primary Do
 ### Phase 3: Implementing High Availability (Additional Domain Controller)
 In this phase, I promoted **KWT-SVR01** from a Member Server to an **Additional Domain Controller (ADC)**. This step is crucial for ensuring redundancy, load balancing, and fault tolerance within the `homelab.com` domain.
 
-### 📸 Execution Steps:
+###  Execution Steps:
 
 1. **Deployment Configuration:** Selected "Add a domain controller to an existing domain" using the `homelab.com` credentials.
 
@@ -121,7 +121,7 @@ In this phase, I promoted **KWT-SVR01** from a Member Server to an **Additional 
 
    ![Prerequisites Check](./assets/ADC-04-Prerequisites-Check.png)
 
-### ✅ Final Verification:
+###  Final Verification:
 After the promotion and mandatory reboot, **KWT-SVR01** now appears correctly under the **Domain Controllers** container in Active Directory Users and Computers (ADUC), alongside the Primary DC.
 ![Final ADUC View](./assets/ADC-05-Final-ADUC-View.png)
 
