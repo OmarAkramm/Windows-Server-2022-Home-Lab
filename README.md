@@ -34,19 +34,19 @@ In this phase, the core virtualization environment was prepared using Microsoft 
 #### 1. Networking & Hyper-V Management
 | Hyper-V Manager Overview | Virtual Switch Configuration | 
 |---|---|
-| ![HyperV Manager](./assets/Hyper-V%20Manager.png) | ![vSwitch](./assets/virtual-Switch.png) |
+| ![HyperV Manager](./assets/phase1/Hyper-V%20Manager.png) | ![vSwitch](./assets/phase1/virtual-Switch.png) |
 
 #### 2. Virtual Machine Specifications
 * **DC1 Configuration:**
   
-  ![DC1 Settings](./assets/DC1-Settings.png)
+  ![DC1 Settings](./assets/phase1/DC1-Settings.png)
 * **SVR1 Configuration:**
   
-  ![SVR1 Settings](./assets/SVR1-Settings.png)
+  ![SVR1 Settings](./assets/phase1/SVR1-Settings.png)
 
 #### 3. System Access (Live Demo)
 > Below is a quick capture of the successful login process:
-![Login Demo](./assets/login-demo.gif)
+![Login Demo](./assets/phase1/login-demo.gif)
 
 ---
 
@@ -75,27 +75,27 @@ In this phase, I established the identity foundation by promoting the primary Do
 #### 1. Networking & Static IP Configuration
 | KWT-DC01 Network Settings | KWT-SVR01 DNS Pointing | 
 |---|---|
-| ![DC Network](./assets/dc-ip-config.png) | ![SVR Network](./assets/svr-dns-setup.png) |
+| ![DC Network](./assets/phase2/dc-ip-config.png) | ![SVR Network](./assets/phase2/svr-dns-setup.png) |
 
 #### 2. Active Directory Configuration & Domain Join
 * **Forest Deployment (`homelab.com`):**
   
-  ![Forest Setup](./assets/forest-setup.png)
+  ![Forest Setup](./assets/phase2/forest-setup.png)
 
 * **Initiating Domain Join & Success:**
 
 | Initiating Join | Success Message |
 |---|---|
-| ![Join Step](./assets/domain-join-step.png) | ![Join Success](./assets/join-success.png) |
+| ![Join Step](./assets/phase2/domain-join-step.png) | ![Join Success](./assets/phase2/join-success.png) |
   
 #### 3. Directory Verification & Identity (Live Demo)
 * **Active Directory Users and Computers (ADUC):**
   > Verification of `KWT-SVR01` registration within the "Computers" container:
-  ![ADUC Check](./assets/aduc-check.png)
+  ![ADUC Check](./assets/phase2/aduc-check.png)
 
 * **Domain Admin Access:**
   > Below is a capture of the successful login on the member server using the Domain Administrator account (`HOMELAB\Administrator`):
-  ![Domain Login](./assets/domain-login-final.gif)
+  ![Domain Login](./assets/phase2/domain-login-final.gif)
 
 ---
 
@@ -106,24 +106,24 @@ In this phase, I promoted **KWT-SVR01** from a Member Server to an **Additional 
 
 1. **Deployment Configuration:** Selected "Add a domain controller to an existing domain" using the `homelab.com` credentials.
 
-   ![Deployment Config](./assets/ADC-01-Deployment-Config.png)
+   ![Deployment Config](./assets/phase3/ADC-01-Deployment-Config.png)
 
 3. **Domain Controller Options:** Enabled the **Global Catalog (GC)**. 
    > **Note on DNS:** For this lab, the DNS role was not installed on the ADC to rely on the Primary DC's centralized DNS.
    
-   ![DC Options](./assets/ADC-02-Domain-Controller-Options.png)
+   ![DC Options](./assets/phase3/ADC-02-Domain-Controller-Options.png)
 
 5. **Replication Strategy:** Used the "Any domain controller" option. Since there is currently only one Primary DC, the system automatically sourced the AD database from **KWT-DC01**.
 
-   ![Replication Options](./assets/ADC-03-Additional-Options.png)
+   ![Replication Options](./assets/phase3/ADC-03-Additional-Options.png)
 
 7. **Prerequisites Check:** All checks passed successfully, ensuring the environment was ready for the promotion.
 
-   ![Prerequisites Check](./assets/ADC-04-Prerequisites-Check.png)
+   ![Prerequisites Check](./assets/phase3/ADC-04-Prerequisites-Check.png)
 
 ###  Final Verification:
 After the promotion and mandatory reboot, **KWT-SVR01** now appears correctly under the **Domain Controllers** container in Active Directory Users and Computers (ADUC), alongside the Primary DC.
-![Final ADUC View](./assets/ADC-05-Final-ADUC-View.png)
+![Final ADUC View](./assets/phase3/ADC-05-Final-ADUC-View.png)
 
 ---
 
