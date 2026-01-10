@@ -1,4 +1,4 @@
-# Windows Server 2022 Home Lab
+<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/64680762-5a86-45c8-97eb-36d93fdf3bac" /># Windows Server 2022 Home Lab
 
 ## Overview
 This repository serves as a technical portfolio documenting my hands-on implementation and administration of a Windows Server 2022 environment. It features a comprehensive documentation of the practical steps, configurations, and system deployments managed during this project.
@@ -152,30 +152,21 @@ In this phase, I configured the DNS services for **homelab.com** to handle exter
 
 ---
 
-### Phase 5: DHCP Server Implementation (Simulated Environment)
+### Phase 5: DHCP Server Implementation & High Availability (Failover)
 
-In this phase, I configured the DHCP role on **kwt-SVR-1** to demonstrate IP address management and scope configuration. 
+In this phase, I configured the DHCP role to ensure automated and resilient IP address management for the **homelab.com** infrastructure.
 
-**Note**: This scope is created for simulation and documentation purposes to showcase infrastructure management skills.
+### 1. DHCP Scope & Reservation (Simulated)
+* **Scope**: Created a simulated scope `10.100.10.0/24`.
+* **Exclusions**: Reserved `10.100.10.1` - `10.100.10.20` for static infrastructure.
+* **Reservation**: Configured a static IP reservation (`10.100.10.200`) for a network printer.
 
-### 1. DHCP Role Deployment
-* **Server**: Installed and authorized the DHCP Server role on **kwt-SVR-1** within the **homelab.com** domain.
-
-### 2. Experimental Scope Configuration (10.100.10.0/24)
-* **Objective**: Demonstrating the ability to define logical network segments.
-* **Exclusions**: Reserved `10.100.10.1` - `10.100.10.20` to simulate protection for static infrastructure.
-* **Scope Options**:
-    * **Default Gateway**: `10.100.10.100` (Simulated Gateway)
-    * **DNS Server**: `192.168.8.100`
-    * **DNS Domain**: `homelab.com`
-
-### 3. Static IP Reservations
-* **Scenario**: Configured a reservation for a network printer to demonstrate persistence in dynamic environments.
-* **Configuration**: Reserved IP `10.100.10.200` using a simulated MAC address.
+### 2. DHCP High Availability (Failover)
+* **Mode**: Configured **Hot Standby** mode between **kwt-SVR-1** and **kwt-DC01**.
+* **Partner Server**: **kwt-DC01** acts as the standby server.
+* **Objective**: To ensure business continuity; if the primary DHCP server fails, the standby server takes over the lease process immediately without network downtime.
 
 ### Screenshots
-| DHCP Scope & Exclusions | IP Reservation Setup |
-|---|---|
-| ![DHCP Scope](./assets/phase5/dhcp_scope.png) | ![DHCP Reservation](./assets/phase5/reservation.png) |
-
----
+| DHCP Scope & Exclusions | IP Reservation | DHCP Failover Configuration |
+|---|---|---|
+| ![DHCP Scope](./assets/phase5/dhcp_scope.png) | ![DHCP Reservation](./assets/phase5/reservation.png) | ![DHCP Failover](./assets/phase5/failover.png) |
