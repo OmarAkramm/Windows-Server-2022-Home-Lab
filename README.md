@@ -1,5 +1,3 @@
-<img width="1366" height="768" alt="image" src="https://github.com/user-attachments/assets/64680762-5a86-45c8-97eb-36d93fdf3bac" /># Windows Server 2022 Home Lab
-
 ## Overview
 This repository serves as a technical portfolio documenting my hands-on implementation and administration of a Windows Server 2022 environment. It features a comprehensive documentation of the practical steps, configurations, and system deployments managed during this project.
 
