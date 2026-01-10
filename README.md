@@ -132,7 +132,6 @@ After the promotion and mandatory reboot, **KWT-SVR01** now appears correctly un
 
 ---
 
----
 
 ### Phase 4: DNS Infrastructure & External Resolution
 
