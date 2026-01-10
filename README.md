@@ -155,6 +155,7 @@ In this phase, I configured the DNS services for **homelab.com** to handle exter
 ### Phase 5: DHCP Server Implementation (Simulated Environment)
 
 In this phase, I configured the DHCP role on **kwt-SVR-1** to demonstrate IP address management and scope configuration. 
+
 **Note**: This scope is created for simulation and documentation purposes to showcase infrastructure management skills.
 
 ### 1. DHCP Role Deployment
