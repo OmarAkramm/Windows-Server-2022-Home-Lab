@@ -160,7 +160,7 @@ In this phase, I configured the DHCP role to ensure automated and resilient IP a
 * **Reservation**: Configured a static IP reservation (`10.100.10.200`) for a network printer.
 
 ### 2. DHCP High Availability (Failover)
-* **Mode**: Configured **Hot Standby** mode between **kwt-SVR-1** and **kwt-DC01**.
+* **Mode**: Configured **Hot Standby** mode between **kwt-SVR01** and **kwt-DC01**.
 * **Partner Server**: **kwt-DC01** acts as the standby server.
 * **Objective**: To ensure business continuity; if the primary DHCP server fails, the standby server takes over the lease process immediately without network downtime.
 
