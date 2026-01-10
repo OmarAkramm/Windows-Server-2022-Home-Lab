@@ -131,3 +131,24 @@ After the promotion and mandatory reboot, **KWT-SVR01** now appears correctly un
 > While this lab uses a simplified DNS and replication setup, in a **Production Environment**, the best practice is to install DNS on all domain controllers for High Availability and to explicitly define replication partners.
 
 ---
+
+---
+
+### Phase 4: DNS Infrastructure & External Resolution
+
+In this phase, I configured the DNS services for **homelab.com** to handle external internet resolution and simulate professional inter-domain communication between organizations.
+
+### 1. External DNS Forwarders
+* **Configuration**: Added Google Public DNS (8.8.8.8) as the primary forwarder on **kwt-DC01**.
+* **Benefit**: Ensures the lab environment can resolve external addresses more reliably than using default Root Hints.
+
+### 2. Conditional Forwarders (Inter-Domain Simulation)
+* **Configuration**: Established a **Conditional Forwarder** for a partner domain (`partner.com`).
+* **Scenario**: This simulates a real-world enterprise setup where our DNS server is taught exactly where to send queries for a specific partner organization’s network.
+
+### Screenshots
+| DNS Forwarders Setup | Conditional Forwarder Configuration |
+|---|---|
+| ![DNS Forwarders](./assets/phase4/dns-forwarders.png) | ![Conditional Forwarder](./assets/phase4/conditional-forwarder-setup.png) |
+
+---
