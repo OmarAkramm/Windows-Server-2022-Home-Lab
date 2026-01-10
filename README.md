@@ -151,3 +151,32 @@ In this phase, I configured the DNS services for **homelab.com** to handle exter
 | ![DNS Forwarders](./assets/phase4/dns-forwarders.png) | ![Conditional Forwarder](./assets/phase4/conditional-forwarder-setup.png) |
 
 ---
+
+---
+
+### Phase 5: DHCP Server Implementation (Simulated Environment)
+
+In this phase, I configured the DHCP role on **kwt-SVR-1** to demonstrate IP address management and scope configuration. 
+**Note**: This scope is created for simulation and documentation purposes to showcase infrastructure management skills.
+
+### 1. DHCP Role Deployment
+* **Server**: Installed and authorized the DHCP Server role on **kwt-SVR-1** within the **homelab.com** domain.
+
+### 2. Experimental Scope Configuration (10.100.10.0/24)
+* **Objective**: Demonstrating the ability to define logical network segments.
+* **Exclusions**: Reserved `10.100.10.1` - `10.100.10.20` to simulate protection for static infrastructure.
+* **Scope Options**:
+    * **Default Gateway**: `10.100.10.100` (Simulated Gateway)
+    * **DNS Server**: `192.168.8.100`
+    * **DNS Domain**: `homelab.com`
+
+### 3. Static IP Reservations
+* **Scenario**: Configured a reservation for a network printer to demonstrate persistence in dynamic environments.
+* **Configuration**: Reserved IP `10.100.10.200` using a simulated MAC address.
+
+### Screenshots
+| DHCP Scope & Exclusions | IP Reservation Setup |
+|---|---|
+| ![DHCP Scope](./assets/phase5/dhcp_scope.png) | ![DHCP Reservation](./assets/phase5/reservation.png) |
+
+---
