@@ -168,3 +168,27 @@ In this phase, I configured the DHCP role to ensure automated and resilient IP a
 | DHCP Scope & Exclusions | IP Reservation | DHCP Failover Configuration |
 |---|---|---|
 | ![DHCP Scope](./assets/phase5/dhcp_scope.png) | ![DHCP Reservation](./assets/phase5/reservation.png) | ![DHCP Failover](./assets/phase5/failover.png) |
+
+---
+
+## Phase 6: Group Policy Management & OU Structure
+
+In this phase, I established a professional **Organizational Unit (OU)** hierarchy and implemented targeted **Group Policy Objects (GPOs)** to enforce security and operational standards across **homelab.com**.
+
+### 1. Organizational Unit (OU) Hierarchy & Inheritance Control
+* **Structure**: Created dedicated OUs for **Finance, HR, IT, Research, and Sales** departments.
+* **Exceptions Management**: Applied **Block Inheritance** on the **IT OU** to ensure administrators retain access to system tools (Control Panel, Run command) while maintaining restrictions for other departments.
+* **Management**: Strategically linked GPOs to specific OUs to demonstrate granular control over the infrastructure.
+
+### 2. Security & Restriction Policies
+* **Account Lockout**: Configured a security threshold of **5 invalid logon attempts** to protect domain accounts.
+* **Password Policy**: Enforced a **8-character minimum length** and defined password age requirements via the Default Domain Policy.
+* **Control Panel & System**: Implemented "Prohibit access to Control Panel" and "Disable-Run" policies, targeted at **non-administrative OUs**.
+* **Corporate Environment**: Deployed a "Disable-Wallpaper" GPO to enforce a standardized desktop background.
+
+### Screenshots
+| OU Structure & Inheritance | Account Lockout Settings | Control Panel Restriction |
+|---|---|---|
+| ![OU Structure](./assets/phase6/ou_structure.png) | ![Lockout Policy](./assets/phase6/lockout_policy.png) | ![Disable Control Panel](./assets/phase6/disable_cp.png) |
+
+---
