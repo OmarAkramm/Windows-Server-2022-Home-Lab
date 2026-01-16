@@ -171,7 +171,7 @@ In this phase, I configured the DHCP role to ensure automated and resilient IP a
 
 ---
 
-## Phase 6: Group Policy Management & OU Structure
+### Phase 6: Group Policy Management & OU Structure
 
 In this phase, I established a professional **Organizational Unit (OU)** hierarchy and implemented targeted **Group Policy Objects (GPOs)** to enforce security and operational standards across **homelab.com**.
 
