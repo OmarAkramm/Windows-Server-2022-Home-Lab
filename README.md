@@ -191,4 +191,15 @@ In this phase, I established a professional **Organizational Unit (OU)** hierarc
 |---|---|---|
 | ![OU Structure](./assets/phase6/ou_structure.png) | ![Lockout Policy](./assets/phase6/lockout_policy.png) | ![Disable Control Panel](./assets/phase6/disable_cp.png) |
 
+### 3. Troubleshooting Case: GPO Conflict Resolution
+* **The Issue**: Initially, the "Disable-Run" and "Disable-ControlPanel" GPOs were applied at the domain level, which inadvertently restricted **Domain Admins** from accessing essential administrative tools.
+* **The Solution**: To resolve this without moving the admins to a different structure, I modified the **GPO Delegation** settings.
+* **The Fix**: I configured a **Deny** permission for the "Apply Group Policy" right for the **Domain Admins** group on these specific GPOs. This ensured that while the policy remains active for the domain, it explicitly skips the administrators.
+
+### Screenshot
+
+GPO Delegation (The Fix)
+![GPO Delegation](./assets/phase6/delegation_deny.png)
+
+  
 ---
