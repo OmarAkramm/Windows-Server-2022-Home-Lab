@@ -198,3 +198,31 @@ In this phase, I established a professional **Organizational Unit (OU)** hierarc
   
 ---
 
+### Phase 7: File Services (DFS & FSRM)
+
+In this phase, I configured centralized file access and storage control.
+
+### 1. DFS Namespace
+Created a single access point for shared folders across different servers.
+* **Path**: `\\homelab.com\SalesData`
+
+**Folder Targets:**
+* `Docs` points to **kwt-SVR01**:
+![DFS Docs Target](./assets/phase7/DFS_Docs_Target.png)
+
+* `Spreadsheets` points to **kwt-DC01**:
+![DFS Spreadsheets Target](./assets/phase7/DFS_Spreadsheets_Target.png)
+
+### 2. DFS Replication
+Set up real-time synchronization for high availability.
+* **Folder**: `FinanceData`
+
+![Replication Status](./assets/phase7/DFS_Replication_Group.png)
+
+### 3. FSRM Control
+Applied storage limits and file type restrictions on the `ResearchData` folder.
+* **Quota**: Hard limit of **2GB**.
+* **File Screen**: Blocked **Audio, Video, and Executable** files.
+* **Result**: System successfully blocked unauthorized file uploads (.mp3).
+
+![FSRM Action](./assets/phase7/FSRM_Policy_Blocking.png)
