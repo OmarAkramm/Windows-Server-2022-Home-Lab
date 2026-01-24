@@ -226,3 +226,24 @@ Applied storage limits and file type restrictions on the `ResearchData` folder.
 * **Result**: System successfully blocked unauthorized file uploads (.mp3).
 
 ![FSRM Action](./assets/phase7/FSRM_Policy_Blocking.png)
+
+---
+
+### Phase 8: Storage Pools & Advanced Permissions
+
+In this phase, I configured storage resiliency and implemented a strict access control model.
+
+### 1. Storage Spaces (Resiliency)
+Created a **Storage Pool** by combining multiple disks to ensure data is protected against disk failure.
+* **Type**: Mirror (2-way).
+* **Benefit**: High availability; the system stays online even if one disk fails.
+
+![Storage Pool Status](./assets/phase8/Storage_Spaces_Mirror.png)
+
+### 2. Secure Access Control (Research Data)
+Implemented a "Least Privilege" model for the `ResearchData` folder on **kwt-DC01**.
+* **Sharing Permissions**: Removed `Everyone`. Granted **Change/Read** to the `ResearchAndDev` group.
+* **NTFS Permissions**: Disabled **Inheritance** and granted **Modify** access to the `ResearchAndDev` group.
+* **Result**: Only authorized members can access or modify the files.
+
+![Effective Access](./assets/phase8/Effective_Access_Check.png)
