@@ -247,3 +247,33 @@ Implemented a "Least Privilege" model for the `ResearchData` folder on **kwt-DC0
 * **Result**: Only authorized members can access or modify the files.
 
 ![Effective Access](./assets/phase8/Effective_Access_Check.png)
+
+---
+
+### Phase 9: Hyper-V Checkpoints (Data Protection)
+
+**Objective:** Implementing and verifying a disaster recovery strategy using Production Checkpoints.
+
+### 1. Configuration
+* **Mode:** Production Checkpoints.
+* **Target:** `kwt-DC01`.
+
+### 2. Practical Recovery Test
+* **Action:** Captured checkpoint -> Deleted test folder -> Applied checkpoint.
+* **Result:** Successfully restored the deleted folder.
+
+### 3. Evidences (Step-by-Step)
+
+#### A. Settings Configuration
+Configuring the VM to use Production Checkpoints for database consistency.
+![Production Settings](./assets/phase9/CP_Settings.png)
+
+#### B. Disaster Simulation
+The folder is permanently deleted to test the recovery point.
+![Folder Deleted](./assets/phase9/CP_Deleted.png)
+
+#### C. Post-Restore Verification
+Folder successfully recovered after applying the checkpoint.
+![Post-Restore](./assets/phase9/CP_Restored.png)
+
+---
