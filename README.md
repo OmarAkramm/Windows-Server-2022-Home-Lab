@@ -265,15 +265,21 @@ Implemented a "Least Privilege" model for the `ResearchData` folder on **kwt-DC0
 ### 3. Evidences (Step-by-Step)
 
 #### A. Settings Configuration
+
 Configuring the VM to use Production Checkpoints for database consistency.
+
 ![Production Settings](./assets/phase9/CP_Settings.png)
 
 #### B. Disaster Simulation
+
 The folder is permanently deleted to test the recovery point.
+
 ![Folder Deleted](./assets/phase9/CP_Deleted.png)
 
 #### C. Post-Restore Verification
+
 Folder successfully recovered after applying the checkpoint.
+
 ![Post-Restore](./assets/phase9/CP_Restored.png)
 
 ---
