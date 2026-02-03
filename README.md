@@ -282,4 +282,4 @@ Folder successfully recovered after applying the checkpoint.
 
 ![Post-Restore](./assets/phase9/CP_Restored.png)
 
----
+
